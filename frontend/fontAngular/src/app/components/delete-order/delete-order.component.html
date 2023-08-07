@@ -1,0 +1,117 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>CATEGORY</h1>
+        <small>category / Details</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="col-md-6 offset-md-3">
+              <dl class="row">
+                <dt class="col-sm-3">Employee Name</dt>
+                <dd class="col-sm-9">{{ order.empName }}</dd>
+
+                <dt class="col-sm-3">National ID</dt>
+                <dd class="col-sm-9">{{ order.nationalId }}</dd>
+
+                <dt class="col-sm-3">Employee Email</dt>
+                <dd class="col-sm-9">{{ order.email }}</dd>
+
+                <dt class="col-sm-3">Description</dt>
+                <dd class="col-sm-9">{{ order.description }}</dd>
+              </dl>
+              <h3>Product of order</h3>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <td>{{ product.productName }}</td>
+                    <td>{{ product.category.categoryName }}</td>
+                    <td>{{ product.brand.brandName }}</td>
+                    <td>
+                      <button
+                        class="btns update-button"
+                        style="margin-right: 10px"
+                        (click)="openPopup(product.productId)"
+                      >
+                        Delete
+                      </button>
+                      <!--(click)="deleteOneProduct(product.productId)">-->
+
+                      <!--<input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="reason"
+                        required
+                      />-->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--</table>-->
+    </main>
+  </div>
+  <div class="popup-container" id="popupContainer">
+    <div class="popup-content">
+      <span class="close-button" (click)="closePopup()">&times;</span>
+      <h2>Reason</h2>
+      <input type="text" id="reason" />
+      <button class="update-button" (click)="deleteOneProduct()">Submit</button>
+    </div>
+  </div>
+</div>

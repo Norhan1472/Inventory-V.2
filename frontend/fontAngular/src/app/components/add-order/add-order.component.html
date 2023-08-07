@@ -1,0 +1,160 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>ORDER</h1>
+        <small>ORDER / OPREATION</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add"></div>
+          </div>
+
+          <div>
+            <!--<table width="100%">-->
+            <!--col-md-6 offset-md-3-->
+            <!--class="center-div"-->
+            <div>
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Employee Name</label>
+
+                  <input
+                    [(ngModel)]="orders.empName"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="empName"
+                    class="form-control"
+                    type="text"
+                  />
+
+                  <label>National ID</label>
+                  <input
+                    [(ngModel)]="orders.nationalId"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="nationalId"
+                    class="form-control"
+                    type="text"
+                  />
+
+                  <label>Employee email</label>
+                  <input
+                    [(ngModel)]="orders.email"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="email"
+                    class="form-control"
+                    type="text"
+                  />
+
+                  <label>Product Description</label>
+                  <input
+                    [(ngModel)]="orders.description"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="description"
+                    class="form-control"
+                    type="text"
+                  />
+                </div>
+                <form [formGroup]="form">
+                  <div formArrayName="product">
+                    <div
+                      *ngFor="
+                        let productGroup of productArray.controls;
+                        let i = index
+                      "
+                      [formGroupName]="i"
+                    >
+                      <h3>Product - {{ i + 1 }}</h3>
+                      <div class="form-group">
+                        <select
+                          class="form-control"
+                          formControlName="productName"
+                          (change)="onSelectedProduct($event, i)"
+                        >
+                          <option selected="true" disabled="disabled">
+                            Choose a product name
+                          </option>
+                          <option
+                            *ngFor="let product of products"
+                            [value]="product.productId"
+                          >
+                            {{ product.productName }}
+                          </option>
+                        </select>
+                      </div>
+                      <input
+                        type="text"
+                        formControlName="category"
+                        placeholder="Category"
+                      />
+                      <input
+                        type="text"
+                        formControlName="brand"
+                        placeholder="Brand"
+                      />
+                    </div>
+                    <br />
+
+                    <button
+                      (click)="addProduct()"
+                      class="btn btn-outline-primary"
+                      style="background-color: #198754; color: white"
+                    >
+                      Add Product
+                    </button>
+                  </div>
+                </form>
+                <br />
+                <br />
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            </div>
+            <!--</table>-->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

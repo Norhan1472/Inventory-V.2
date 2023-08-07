@@ -1,0 +1,123 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>CATEGORY</h1>
+        <small>Category / UPDATE</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="list">
+              <h3>Update Category</h3>
+              <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+                <div class="form-group">
+                  <label>Category Name</label>
+
+                  <input
+                    [(ngModel)]="category.categoryName"
+                    formControlName="categoryName"
+                    name="categoryName"
+                    class="form-control"
+                    type="text"
+                  />
+                </div>
+                <label>Brand Name</label>
+
+                <div *ngFor="let brand of brandss; let i = index">
+                  <input
+                    type="checkbox"
+                    formArrayName="selectedBrands"
+                    [value]="brand.brandId"
+                    [checked]="checkIfExist(brand)"
+                    (change)="onCheckboxChange($event)"
+                  />
+                  {{ brand.brandName }}
+                </div>
+                <br />
+                <button class="btn btn-success" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--</table>-->
+    </main>
+  </div>
+</div>
+<!--
+  <label style="margin-right: 10px; font-size: 18px"
+                >Add Category</label
+              >
+              <input style="margin-right: 10px; border-radius: 5px" />
+              <li class="list-item">
+                <input type="checkbox" class="hidden-box" id="first" />
+                <label for="first" class="check--label">
+                  <span class="check--label-box"></span>
+                  <span class="check--label-text">First Checkbox</span>
+                </label>
+              </li>
+              <li class="list-item">
+                <input type="checkbox" class="hidden-box" id="second" />
+                <label for="second" class="check--label">
+                  <span class="check--label-box"></span>
+                  <span class="check--label-text">Second Checkbox</span>
+                </label>
+              </li>
+              <li class="list-item">
+                <input type="checkbox" class="hidden-box" id="third" />
+                <label for="third" class="check--label">
+                  <span class="check--label-box"></span>
+                  <span class="check--label-text">Third Checkbox</span>
+                </label>
+              </li>
+              <button
+                type="submit"
+                style="width: 65px; height: 30px"
+                class="btn btn-primary"
+              >
+                Submit
+              </button>
+-->

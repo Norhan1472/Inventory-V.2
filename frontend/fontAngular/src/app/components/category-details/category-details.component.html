@@ -1,0 +1,73 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>CATEGORY</h1>
+        <small>category / Details</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="list">
+              <h3>View Category Details</h3>
+              <br />
+              <br />
+              <dl class="row">
+                <dt class="col-sm-3">Category Name</dt>
+                <dd class="col-sm-9">{{ category.categoryName }}</dd>
+
+                <dt class="col-sm-3">Brands</dt>
+                <dl class="col-sm-3" *ngFor="let brand of category.brands">
+                  <dd class="col-sm-9">{{ brand.brandName }}</dd>
+                </dl>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--</table>-->
+    </main>
+  </div>
+</div>

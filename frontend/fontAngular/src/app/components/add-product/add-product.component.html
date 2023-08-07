@@ -1,0 +1,186 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>PRODUCTS</h1>
+        <small>PRODUCTS / OPREATION</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add"></div>
+          </div>
+
+          <div>
+            <!--<table width="100%">-->
+            <!--col-md-6 offset-md-3-->
+            <!--class="center-div"-->
+            <div>
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Product Serial Number </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSerialNumber"
+                    placeholder="Enter product Serial Number"
+                    name="productSerialNumber"
+                    [(ngModel)]="products.serialNumber"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Product name </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    placeholder="Enter product name"
+                    name="productName"
+                    [(ngModel)]="products.productName"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Product Model </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productModel"
+                    placeholder="Enter product model"
+                    name="productModel"
+                    [(ngModel)]="products.model"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Product type </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productType"
+                    placeholder="Enter product type"
+                    name="productType"
+                    [(ngModel)]="products.type"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Product specification </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSpecification"
+                    placeholder="Enter product specification"
+                    name="productSpecification"
+                    [(ngModel)]="products.specification"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Status</label>
+                  <select
+                    class="form-control"
+                    #status
+                    (change)="onSelectedStatus(status.value)"
+                  >
+                    <option selected="true" disabled="disabled">
+                      Choose a Status
+                    </option>
+                    <option
+                      *ngFor="let status of keys(statusData)"
+                      [ngValue]="status"
+                    >
+                      {{ status }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Category name</label>
+                  <select
+                    class="form-control"
+                    #categorys
+                    (change)="onSelectedCategory(categorys.value)"
+                  >
+                    <option selected="true" disabled="disabled">
+                      Choose a category name
+                    </option>
+                    <option *ngFor="let category of categorysList">
+                      {{ category.categoryName }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Brand name</label>
+                  <select
+                    class="form-control"
+                    #brands
+                    (change)="onSelectedBrand(brands.value)"
+                  >
+                    <option selected="true" disabled="disabled">
+                      Choose a brand name
+                    </option>
+                    <option *ngFor="let brand of brandNames">
+                      {{ brand.brandName }}
+                    </option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="background-color: #198754; color: white"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+            <!--</table>-->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

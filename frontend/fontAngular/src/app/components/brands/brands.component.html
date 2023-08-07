@@ -1,0 +1,118 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>BRANDS</h1>
+        <small>BRAND / OPREATION</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <form [formGroup]="formBrand">
+              <div class="add">
+                <button (click)="submitData()">Add Brand</button>
+                <input
+                  class="addbrand"
+                  formControlName="brandName"
+                  placeholder="add your brand here"
+                />
+              </div>
+            </form>
+          </div>
+
+          <div>
+            <table width="100%">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><span class="las la-sort"></span> Brand Name</th>
+                  <th><span class="las la-sort"></span> ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let brand of brands">
+                  <td>#{{ brand.brandId }}</td>
+                  <td>
+                    <div class="client">
+                      <div class="client-info">
+                        <h2>{{ brand.brandName }}</h2>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="actions" mat-dialog-actions>
+                      <button
+                        class="btns update-button"
+                        style="margin-right: 10px"
+                        (click)="openPopup(brand.brandId)"
+                      >
+                        <span class="fa fa-edit"></span>
+                      </button>
+                      <button
+                        class="btns update-button"
+                        (click)="deleteBrand(brand.brandId)"
+                      >
+                        <span class="fa fa-trash"></span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="popup-container" id="popupContainer">
+    <div class="popup-content">
+      <span class="close-button" (click)="closePopup()">&times;</span>
+      <h2>Edit Brand</h2>
+      <input type="text" id="brandInput" />
+      <button class="update-button" (click)="updateBrand()">Update</button>
+    </div>
+  </div>
+</div>

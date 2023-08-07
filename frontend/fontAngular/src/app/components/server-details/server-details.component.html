@@ -1,0 +1,175 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>SERVER</h1>
+        <small>SERVER / OPERATION</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add">
+              <button routerLink="/addServerDetails" routerLinkActive="active">
+                Add Server
+              </button>
+            </div>
+            <div class="add">
+              <!--<button href="http://localhost:8080/api/history/v3/export-to-pdf">
+                generate report
+              </button>-->
+              <a (click)="generateReport()">
+                <button>generate report</button>
+              </a>
+            </div>
+            <!--<div class="add"></div>-->
+            <!--<span>Entries</span>
+              <select name="" id="">
+                <option value="">ID</option>
+              </select>
+              <button>Add record</button>-->
+
+            <div class="browse">
+              <!--<input
+                type="search"
+                placeholder="Search"
+                class="record-search"
+                (keyup)="searchProductName($event)"
+              />-->
+              <select
+                name="Statue"
+                id=""
+                #state
+                (change)="onSelected(state.value)"
+              >
+                <option value="all">All</option>
+                <option value="Active">Active</option>
+                <option value="Not_Active">Not Active</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <table width="100%">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><span class="las la-sort"></span> Server Name</th>
+                  <th><span class="las la-sort"></span> Physical Server</th>
+                  <th><span class="las la-sort"></span> Current Statue</th>
+                  <th><span class="las la-sort"></span> ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let server of serverDetails">
+                  <td>#{{ server.id }}</td>
+                  <td>
+                    <div class="client">
+                      <div>
+                        <!--
+                        class="client-img bg-img"
+                        style="background-image: url(img/1.jpeg)"-->
+                      </div>
+                      <div class="client-info">
+                        <h4>{{ server.serverName }}</h4>
+                        <small>{{ server.ipAddress }}</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="client">
+                      <div>
+                        <!--
+                        class="client-img bg-img"
+                        style="background-image: url(img/1.jpeg)"-->
+                      </div>
+                      <div class="client-info">
+                        <h4>{{ server.physicalServer }}</h4>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btns">
+                      <span class="paid" *ngIf="isActive(server.statusServer)">
+                        Active</span
+                      >
+                      <span
+                        class="unactive"
+                        *ngIf="!isActive(server.statusServer)"
+                      >
+                        Not Active</span
+                      >
+                    </button>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <button
+                        class="btns"
+                        (click)="updateServerDetails(server.id)"
+                      >
+                        <span class="fa fa-pencil-square"></span>
+                      </button>
+                      <button
+                        class="btns"
+                        (click)="serverDataDetails(server.id)"
+                      >
+                        <span class="fa fa-eye"></span>
+                      </button>
+                      <button
+                        class="btns"
+                        (click)="deleteServerDetails(server.id)"
+                      >
+                        <span class="fa fa-trash"></span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

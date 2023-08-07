@@ -1,0 +1,113 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>SYSTEMS</h1>
+        <small>SYSTEMS / OPREATION</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add"></div>
+          </div>
+
+          <div>
+            <!--<table width="100%">-->
+            <!--col-md-6 offset-md-3-->
+            <!--class="center-div"-->
+            <div>
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Software Name </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSerialNumber"
+                    placeholder="Enter product Serial Number"
+                    name="productSerialNumber"
+                    [(ngModel)]="systemInfo.softwareName"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>User name </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    placeholder="Enter product name"
+                    name="productName"
+                    [(ngModel)]="systemInfo.userName"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Password </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productModel"
+                    placeholder="Enter product model"
+                    name="productModel"
+                    [(ngModel)]="systemInfo.password"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="background-color: #198754; color: white"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+            <!--</table>-->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

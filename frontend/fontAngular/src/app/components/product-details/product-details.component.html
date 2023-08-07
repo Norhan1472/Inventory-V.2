@@ -1,0 +1,106 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>PRODUCT</h1>
+        <small>Product / Details</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="list">
+              <h3>View Product Details</h3>
+              <br />
+              <br />
+              <dl class="row">
+                <dt class="col-sm-3">Product Serial Number</dt>
+                <dd class="col-sm-9">{{ product.serialNumber }}</dd>
+
+                <dt class="col-sm-3">Product Name</dt>
+                <dd class="col-sm-9">{{ product.productName }}</dd>
+
+                <dt class="col-sm-3">Product Model</dt>
+                <dd class="col-sm-9">{{ product.model }}</dd>
+
+                <dt class="col-sm-3">Product Type</dt>
+                <dd class="col-sm-9">{{ product.type }}</dd>
+
+                <dt class="col-sm-3">Product Status</dt>
+                <dd class="col-sm-9">{{ product.status }}</dd>
+
+                <dt class="col-sm-3">Product Specification</dt>
+                <dd class="col-sm-9">{{ product.specification }}</dd>
+
+                <!--<dt class="col-sm-3">Category of product </dt>
+                <dd class="col-sm-9">{{product.category.categoryName}}</dd>
+                <dt class="col-sm-3">Category of product </dt>-->
+                <dt class="col-sm-3">Category of product</dt>
+                <dd class="col-sm-9">
+                  <ng-container *ngIf="product.category">
+                    {{ product.category.categoryName }}
+                  </ng-container>
+                  <ng-container *ngIf="!product.category">
+                    Category not available
+                  </ng-container>
+                </dd>
+
+                <dt class="col-sm-3">Brand of product</dt>
+                <dd class="col-sm-9">
+                  <ng-container *ngIf="product.brand">
+                    {{ product.brand.brandName }}
+                  </ng-container>
+                  <ng-container *ngIf="!product.brand">
+                    Brand not available
+                  </ng-container>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--</table>-->
+    </main>
+  </div>
+</div>

@@ -1,0 +1,165 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>Orders</h1>
+        <small>Home / Orders</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add">
+              <button routerLink="/addOrder" routerLinkActive="active">
+                Add Order
+              </button>
+            </div>
+
+            <div class="browse">
+              <input type="search" placeholder="Search" class="record-search" />
+
+              <!--(keyup)="searchProductName($event)"-->
+
+              <!--<select
+                name="Statue"
+                id=""
+                #state
+                (change)="onSelected(state.value)"
+              >
+                <option value="all">All</option>
+                <option value="Active">Active</option>
+                <option value="Not_Active">Not Active</option>
+              </select>-->
+            </div>
+          </div>
+
+          <div>
+            <table width="100%">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><span class="las la-sort"></span> Employee Name</th>
+                  <th><span class="las la-sort"></span> Date</th>
+                  <th><span class="las la-sort"></span> ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let order of orders">
+                  <td>#{{ order.orderId }}</td>
+                  <td>
+                    <div class="client">
+                      <div>
+                        <!--
+                        class="client-img bg-img"
+                        style="background-image: url(img/1.jpeg)"-->
+                      </div>
+                      <div class="client-info">
+                        <h4>{{ order.empName }}</h4>
+                        <small>{{ order.email }}</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <button class="btns">
+                      <span> {{ order.createdDate }}</span>
+                    </button>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <button
+                        class="btns"
+                        routerLink="/addOrderProduct/{{ order.orderId }}"
+                        routerLinkActive="active"
+                      >
+                        <span class="fa fa-pencil-square"></span>
+                      </button>
+                      <button
+                        class="btns"
+                        routerLink="/updateDataEmployee/{{ order.orderId }}"
+                        routerLinkActive="active"
+                      >
+                        <span class="fa fa-user-circle"></span>
+                      </button>
+
+                      <button
+                        class="btns"
+                        (click)="getOrderDetails(order.orderId)"
+                      >
+                        <span class="fa fa-eye"></span>
+                      </button>
+                      <button class="btns" (click)="deleteOrder(order.orderId)">
+                        <span class="fa fa-trash"></span>
+                      </button>
+                      <button
+                        class="btns"
+                        style="margin-right: 10px"
+                        (click)="openPopup(order.orderId)"
+                      >
+                        <span class="fa fa-times"></span>
+                      </button>
+                      <button
+                        class="btns"
+                        (click)="generateReport(order.orderId)"
+                      >
+                        <span class="fa fa-file-text"></span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="popup-container" id="popupContainer">
+    <div class="popup-content">
+      <span class="close-button" (click)="closePopup()">&times;</span>
+      <h2>Reason</h2>
+      <input type="text" id="reason" />
+      <button class="update-button" (click)="deleteWholeOrder()">Submit</button>
+    </div>
+  </div>
+</div>

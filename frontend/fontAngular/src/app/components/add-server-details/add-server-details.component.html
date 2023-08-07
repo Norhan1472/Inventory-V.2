@@ -1,0 +1,165 @@
+<div class="root">
+  <input type="checkbox" id="menu-toggle" />
+  <app-side-bar></app-side-bar>
+  <div class="main-content">
+    <header>
+      <!--<div class="header-content">
+        <label for="menu-toggle">
+          <span class="las la-bars"></span>
+        </label>
+
+        <div class="header-menu">
+          <label for="">
+            <button class="btns"><span class="las la-search"></span></button>
+          </label>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+            </button>
+          </div>
+
+          <div class="notify-icon">
+            <button class="btns">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+            </button>
+          </div>
+
+          <div class="user">
+            <button class="btns">
+              <div
+                class="bg-img"
+                style="background-image: url(img/1.jpeg)"
+              ></div>
+            </button>
+            <span class="las la-power-off"></span>
+            <button class="btns">Logout</button>
+          </div>
+        </div>
+      </div>-->
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1>SERVERS</h1>
+        <small>SERVERS / OPREATION</small>
+      </div>
+
+      <div class="page-content">
+        <div class="records table-responsive">
+          <div class="record-header">
+            <div class="add"></div>
+          </div>
+
+          <div>
+            <!--<table width="100%">-->
+            <!--col-md-6 offset-md-3-->
+            <!--class="center-div"-->
+            <div>
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label>Server Name </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSerialNumber"
+                    placeholder="Enter product Serial Number"
+                    name="productSerialNumber"
+                    [(ngModel)]="server.serverName"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>IP Address </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    placeholder="Enter product name"
+                    name="productName"
+                    [(ngModel)]="server.ipAddress"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Physical Server</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productModel"
+                    placeholder="Enter product model"
+                    name="productModel"
+                    [(ngModel)]="server.physicalServer"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>User Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productType"
+                    placeholder="Enter product type"
+                    name="productType"
+                    [(ngModel)]="server.userName"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSpecification"
+                    placeholder="Enter product specification"
+                    name="productSpecification"
+                    [(ngModel)]="server.password"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Ram Size</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productSpecification"
+                    placeholder="Enter product specification"
+                    name="productSpecification"
+                    [(ngModel)]="server.ramSize"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Status</label>
+                  <select
+                    class="form-control"
+                    #status
+                    (change)="onSelectedStatus(status.value)"
+                  >
+                    <option selected="true" disabled="disabled">
+                      Choose a Status
+                    </option>
+                    <option
+                      *ngFor="let statusServer of keys(statusData)"
+                      [ngValue]="statusServer"
+                    >
+                      {{ statusServer }}
+                    </option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="background-color: #198754; color: white"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+            <!--</table>-->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

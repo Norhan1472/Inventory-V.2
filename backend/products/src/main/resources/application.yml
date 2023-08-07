@@ -1,0 +1,31 @@
+
+spring:
+  mail:
+    username: norhanmohamed1472000@gmail.com
+    password: piswgqsdfwradzrh
+    port: 587
+    host: smtp.gmail.com
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    password: 12345
+    url: jdbc:mysql://localhost:3306/product_management_system
+    username: root
+  sql:
+    init:
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
